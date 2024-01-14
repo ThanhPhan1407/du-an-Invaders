@@ -38,15 +38,23 @@ screen.onkey(ban,'space')
 
 bl2.penup()
 bl2.hideturtle()
-def ban():
-    a = character.vitri()
-    bl2.setx(a[0])
-    bl2.sety(a[1])
-    bl2.showturtle()
-    while bl2.ycor()<760 :
-        bl2.sety(bl2.ycor()+20)
-    bl2.hideturtle()
-screen.onkey(ban,'space')
+global fired 
+fired =  False
+
+def ban(fired):
+    print(fired)
+    if fired == False:
+        fired = True
+        a = character.vitri()
+        bl2.setx(a[0])
+        bl2.sety(a[1])
+        bl2.showturtle()
+        while bl2.ycor()<730 :
+            bl2.sety(bl2.ycor()+20)
+        bl2.hideturtle()
+        fired = False
+    
+screen.onkey(ban(fired),'space')
 
 
 screen.exitonclick()
